@@ -4,9 +4,10 @@ import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import NotFoundPage from './components/NotFoundPage';
 import HomePage from './components/HomePage';
+// eslint-disable-next-line import/no-cycle
 import TabsPage from './components/TabsPage';
 import Layout from './components/Layout';
-import PrivateRoute from "./components/PrivateRoute";
+import PrivateRoute from './components/PrivateRoute';
 
 export interface Tab {
   id: string;

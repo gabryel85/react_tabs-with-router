@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 const Navigation: FC = () => {
   return (
@@ -11,13 +12,19 @@ const Navigation: FC = () => {
         <div className="navbar-brand">
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? 'navbar-item is-active' : 'navbar-item')}
+            className={({ isActive }) => classNames(
+              'navbar-item',
+              { 'is-active': isActive },
+            )}
           >
             Home
           </NavLink>
           <NavLink
             to="/tabs"
-            className={({ isActive }) => (isActive ? 'navbar-item is-active' : 'navbar-item')}
+            className={({ isActive }) => classNames(
+              'navbar-item',
+              { 'is-active': isActive },
+            )}
           >
             Tabs
           </NavLink>

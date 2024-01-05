@@ -4,12 +4,12 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 type Props = {
-  children: ReactElement<any, any>
+  children: ReactElement;
 };
-const PrivateRoute: FC<Props> = ({ children }) => {
-  const [user, setUser] = useState<string | null>('');
 
-  const navigation = useNavigate();
+const PrivateRoute: FC<Props> = ({ children }): ReactElement | null => {
+  const [user, setUser] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const us: string | null = localStorage.getItem('user');
@@ -18,7 +18,9 @@ const PrivateRoute: FC<Props> = ({ children }) => {
   }, []);
 
   if (!user) {
-    navigation('/login');
+    navigate('/login');
+
+    return null;
   }
 
   return children;
